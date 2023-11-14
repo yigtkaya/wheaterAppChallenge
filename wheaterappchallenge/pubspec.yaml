@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_native_splash:
   svg_flutter:
+  geocode: ^1.0.3
+  geolocator: ^10.1.0
 
   go_router:
   dio:

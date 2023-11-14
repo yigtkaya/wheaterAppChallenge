@@ -1,5 +1,6 @@
-import '../models/weather.dart';
-import '../models/weather_info.dart';
+import '../../models/weather.dart';
+import '../../models/weather_info.dart';
+
 
 class WeatherState {
   Weather? todayWeather;

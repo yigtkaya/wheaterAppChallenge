@@ -9,4 +9,9 @@ class AssetConstants {
 
 class HTIcons {
   final String visibility = AssetConstants.toIcon("visibility");
+  final String menu = AssetConstants.toIcon("menu");
+  final String sunny = AssetConstants.toIcon("sunny");
+  final String cloudy = AssetConstants.toIcon("cloudy");
+  final String location = AssetConstants.toIcon("location");
+  final String heavyRain = AssetConstants.toIcon("heavyRain");
 }

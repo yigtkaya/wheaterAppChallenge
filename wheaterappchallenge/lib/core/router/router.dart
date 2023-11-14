@@ -8,8 +8,6 @@ import 'route_paths.dart';
 class AppRouter {
   static final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
-  static GlobalKey<NavigatorState> get rootNavigatorKey => _rootNavigatorKey;
-
   static final GoRouter _router = GoRouter(
     routes: [
       GoRoute(
@@ -21,4 +19,7 @@ class AppRouter {
     navigatorKey: _rootNavigatorKey,
   );
 
+
+  static GlobalKey<NavigatorState> get rootNavigatorKey => _rootNavigatorKey;
+  static GoRouter get router => _router;
 }
