@@ -1,16 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wheaterappchallenge/core/constants/asset_constants.dart';
 import 'package:wheaterappchallenge/core/constants/kt_icon.dart';
+import 'package:wheaterappchallenge/core/constants/vertical_space.dart';
+import 'package:wheaterappchallenge/product/cubit/location/location_cubit.dart';
+import 'package:wheaterappchallenge/product/cubit/weather/weather_cubit.dart';
 
-class LandingView extends StatefulWidget {
+class LandingView extends StatelessWidget {
   const LandingView({super.key});
 
   @override
-  State<LandingView> createState() => _LandingViewState();
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<LocationCubit>(
+          create: (_) => LocationCubit(),
+        ),
+        BlocProvider<WeatherCubit>(
+          create: (_) => WeatherCubit(),
+        ),
+      ],
+      child: const LandingPage(),
+    );
+  }
 }
 
-class _LandingViewState extends State<LandingView> {
+class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
+
+  @override
+  State<LandingPage> createState() => _LandingPageState();
+}
+
+class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +41,11 @@ class _LandingViewState extends State<LandingView> {
       children: [
         Container(
           decoration: const BoxDecoration(
-              image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/dubai_city_view.png'))),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage('assets/image/dubai_city_view.png'),
+            ),
+          ),
         ),
         Container(
           decoration: BoxDecoration(
@@ -40,13 +65,19 @@ class _LandingViewState extends State<LandingView> {
               Row(
                 children: [
                   HTIcon(iconName: AssetConstants.icons.location),
-                  Text("Paris, France", style: GoogleFonts.ubuntu(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),),
+                  Text(
+                    "Paris, France",
+                    style: GoogleFonts.ubuntu(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
                   const Spacer(),
                   HTIcon(iconName: AssetConstants.icons.menu),
                 ],
+              ),
+              const VerticalSpace(
+                spaceAmount: 20,
               ),
             ],
           ),

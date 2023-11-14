@@ -8,10 +8,10 @@ class AssetConstants {
 }
 
 class HTIcons {
-  final String visibility = AssetConstants.toIcon("visibility");
-  final String menu = AssetConstants.toIcon("menu");
-  final String sunny = AssetConstants.toIcon("sunny");
-  final String cloudy = AssetConstants.toIcon("cloudy");
-  final String location = AssetConstants.toIcon("location");
-  final String heavyRain = AssetConstants.toIcon("heavyRain");
+  final String visibility = AssetConstants.toIcon("visibility_icon");
+  final String menu = AssetConstants.toIcon("menu_icon");
+  final String sunny = AssetConstants.toIcon("sunny_icon");
+  final String cloudy = AssetConstants.toIcon("cloudy_icon");
+  final String location = AssetConstants.toIcon("location_icon");
+  final String heavyRain = AssetConstants.toIcon("heavyRain_icon");
 }
