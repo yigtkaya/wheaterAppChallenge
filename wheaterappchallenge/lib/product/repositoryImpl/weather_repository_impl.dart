@@ -11,7 +11,7 @@ class WeatherRepositoryImpl extends WeatherRepository {
   @override
   Future<List<WeatherPerDay>> getWeeklyWeather(double lat, double lon) async {
     final response = await dio.get(
-      'https://api.open-meteo.com/v1/forecast?$lat&$lon&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m',
+      'https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lon&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m',
     );
 
     final weather = WeatherDTO.fromJson(response.data);

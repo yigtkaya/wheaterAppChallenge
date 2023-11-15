@@ -2,17 +2,17 @@ import '../../models/Location.dart';
 
 class LocationState {
   Location? location;
-  String? address;
+  String address;
   bool isLoading;
-  LocationState({this.location, this.isLoading = false, this.address});
+  LocationState({this.location, this.isLoading = false, required this.address});
 }
 
 class LocationInitial extends LocationState {
-  LocationInitial() : super();
+  LocationInitial() : super(address: "");
 }
 
 class LocationLoading extends LocationState {
-  LocationLoading() : super(isLoading: true);
+  LocationLoading() : super(isLoading: true, address: "");
 }
 
 class LocationLoaded extends LocationState {
@@ -21,5 +21,5 @@ class LocationLoaded extends LocationState {
 }
 
 class LocationError extends LocationState {
-  LocationError() : super(isLoading: false);
+  LocationError() : super(isLoading: false, address: "");
 }
