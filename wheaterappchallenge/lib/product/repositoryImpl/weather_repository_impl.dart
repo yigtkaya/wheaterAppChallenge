@@ -13,8 +13,11 @@ class WeatherRepositoryImpl extends WeatherRepository {
     final response = await dio.get(
       'https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lon&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m',
     );
-
-    final weather = WeatherDTO.fromJson(response.data);
+    if (response.statusCode != 200) {
+      throw Exception('Error getting weather');
+    }
+    Map<String, dynamic> json = response.data['hourly'];
+    final weather = WeatherDTO.fromJson(json);
     return weather.groupBy24Hours();
   }
 

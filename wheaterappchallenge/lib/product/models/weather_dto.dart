@@ -2,12 +2,12 @@ import 'package:wheaterappchallenge/product/models/weather.dart';
 import 'package:wheaterappchallenge/product/models/weather_info.dart';
 
 class WeatherDTO {
-  final List<String> time;
-  final List<double> temperatures;
-  final List<int> humidity;
-  final List<double> apparentTemperatures;
-  final List<double> windSpeed;
-  final List<int> weatherCode;
+  final List<dynamic> time;
+  final List<dynamic> temperatures;
+  final List<dynamic> humidity;
+  final List<dynamic> apparentTemperatures;
+  final List<dynamic> windSpeed;
+  final List<dynamic> weatherCode;
 
   WeatherDTO({
     required this.time,
@@ -21,13 +21,21 @@ class WeatherDTO {
 
   // create weatherDTO from json
   factory WeatherDTO.fromJson(Map<String, dynamic> json) {
+    print(json['time'].runtimeType);
+    final List<dynamic> time = json['time'];
+    final List<dynamic> temperatures = json['temperature_2m'];
+    final List<dynamic> humidity = json['relative_humidity_2m'];
+    final List<dynamic> apparentTemperatures = json['apparent_temperature'];
+    final List<dynamic> windSpeed = json['wind_speed_10m'];
+    final List<dynamic> weatherCode = json['weather_code'];
+
     return WeatherDTO(
-      time: json['hourly']['time'],
-      temperatures: json['hourly']['temperature_2m'],
-      humidity: json['hourly']['relative_humidity_2m'],
-      apparentTemperatures: json['hourly']['apparent_temperature'],
-      windSpeed: json['hourly']['wind_speed_10m'],
-      weatherCode: json['hourly']['weather_code'],
+      time: time,
+      temperatures: temperatures,
+      humidity: humidity,
+      apparentTemperatures: apparentTemperatures,
+      windSpeed: windSpeed,
+      weatherCode: weatherCode,
     );
   }
 
