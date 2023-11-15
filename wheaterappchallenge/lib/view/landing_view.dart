@@ -6,6 +6,8 @@ import 'package:wheaterappchallenge/core/constants/kt_icon.dart';
 import 'package:wheaterappchallenge/core/constants/vertical_space.dart';
 import 'package:wheaterappchallenge/product/cubit/location/location_cubit.dart';
 import 'package:wheaterappchallenge/product/cubit/weather/weather_cubit.dart';
+import 'package:wheaterappchallenge/view/UpcomingDays.dart';
+import 'package:wheaterappchallenge/view/WeatherDetails.dart';
 
 class LandingView extends StatelessWidget {
   const LandingView({super.key});
@@ -58,27 +60,75 @@ class _LandingPageState extends State<LandingPage> {
               ])),
         ),
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.only(left: 12.0, right: 12, top: 40),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Row(
                 children: [
-                  HTIcon(iconName: AssetConstants.icons.location),
-                  Text(
+                  HTIcon(
+                      iconName: AssetConstants.icons.location,
+                      color: Colors.white,
+                      width: 24,
+                      height: 24),
+                  const Text(
                     "Paris, France",
-                    style: GoogleFonts.ubuntu(
+                    style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                     ),
                   ),
                   const Spacer(),
-                  HTIcon(iconName: AssetConstants.icons.menu),
+                  HTIcon(
+                      iconName: AssetConstants.icons.menu,
+                      width: 24,
+                      height: 24),
                 ],
               ),
               const VerticalSpace(
                 spaceAmount: 20,
               ),
+              Column(
+                children: [
+                  Text("June 07", style: TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.w600),),
+                  VerticalSpace(
+                    spaceAmount: 10,
+                  ),
+                  Text(
+                    "Updated 10:00 AM",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  VerticalSpace(
+                    spaceAmount: 30,
+                  ),
+                  HTIcon(
+                    iconName: AssetConstants.icons.cloudy,
+                    width: 32,
+                    height: 32,
+                  ),
+                  Text(
+                    "Clear",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 40,
+                        color: Colors.white),
+                  ),
+                  Text(
+                    "24ºC",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 60,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
+              const WeatherDetailsRow(humidity: 54, wind: 4.32, feelsLike: 22),
+              const VerticalSpace(
+                spaceAmount: 30,
+              ),
+              const Spacer(),
+              Upcoming7Days(),
+              const Spacer(),
             ],
           ),
         )

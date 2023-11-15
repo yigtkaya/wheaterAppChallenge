@@ -13,5 +13,8 @@ class HTIcons {
   final String sunny = AssetConstants.toIcon("sunny_icon");
   final String cloudy = AssetConstants.toIcon("cloudy_icon");
   final String location = AssetConstants.toIcon("location_icon");
-  final String heavyRain = AssetConstants.toIcon("heavyRain_icon");
+  final String heavyRain = AssetConstants.toIcon("heavy_rain_icon");
+  final String feelsLike = AssetConstants.toIcon("feels_icon");
+  final String humidity = AssetConstants.toIcon("humidity_icon");
+  final String wind = AssetConstants.toIcon("wind_icon");
 }
