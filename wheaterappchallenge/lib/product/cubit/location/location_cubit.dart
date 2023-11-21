@@ -6,7 +6,7 @@ class LocationCubit extends Cubit<LocationState> {
   LocationRepositoryImpl locationRepository = LocationRepositoryImpl();
 
   LocationCubit() : super(LocationInitial()) {
-    getLocation();
+    checkPermission();
   }
 
   void getLocation() async {
@@ -17,6 +17,13 @@ class LocationCubit extends Cubit<LocationState> {
       emit(LocationLoaded(location, address));
     } catch (e) {
       emit(LocationError());
+    }
+  }
+
+  void checkPermission() async {
+    final locationAvailable = await locationRepository.askPermission();
+    if (locationAvailable) {
+      getLocation();
     }
   }
 }

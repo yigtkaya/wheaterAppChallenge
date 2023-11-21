@@ -7,7 +7,6 @@ import 'package:wheaterappchallenge/core/constants/vertical_space.dart';
 import 'package:wheaterappchallenge/product/cubit/location/location_cubit.dart';
 import 'package:wheaterappchallenge/product/cubit/location/location_state.dart';
 import 'package:wheaterappchallenge/product/cubit/weather/weather_cubit.dart';
-import 'package:wheaterappchallenge/product/cubit/weather/weather_state.dart';
 import 'package:wheaterappchallenge/view/UpcomingDays.dart';
 import 'package:wheaterappchallenge/view/WeatherDetails.dart';
 
@@ -78,24 +77,25 @@ class _LandingPageState extends State<LandingPage> {
                     spaceAmount: 12,
                   ),
                   BlocBuilder<LocationCubit, LocationState>(
-                      builder: (context, state) {
-                    if (state is LocationLoaded) {
-                      return Text(
-                        state.address,
-                        style: const TextStyle(
+                    builder: (context, state) {
+                      if (state is LocationLoaded) {
+                        return Text(
+                          state.address,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        );
+                      }
+                      return const Text(
+                        "Loading...",
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                         ),
                       );
-                    }
-                    return const Text(
-                      "Loading...",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    );
-                  }),
+                    },
+                  ),
                   const Spacer(),
                   HTIcon(
                       iconName: AssetConstants.icons.menu,

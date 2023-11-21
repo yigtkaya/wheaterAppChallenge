@@ -13,8 +13,16 @@ class HTIcons {
   final String sunny = AssetConstants.toIcon("sunny_icon");
   final String cloudy = AssetConstants.toIcon("cloudy_icon");
   final String location = AssetConstants.toIcon("location_icon");
-  final String heavyRain = AssetConstants.toIcon("heavy_rain_icon");
   final String feelsLike = AssetConstants.toIcon("feels_icon");
   final String humidity = AssetConstants.toIcon("humidity_icon");
   final String wind = AssetConstants.toIcon("wind_icon");
+  final String mist = AssetConstants.toIcon("mist");
+  final String thunderstorm = AssetConstants.toIcon("thunderstorm");
+  final String rain = AssetConstants.toIcon("rain");
+  final String lightRain = AssetConstants.toIcon("light_rain");
+  final String lightSnow = AssetConstants.toIcon("light_snow");
+  final String heavySnow = AssetConstants.toIcon("snow");
+  final String heavyRain = AssetConstants.toIcon("heavy_rain");
+  final String drizzle = AssetConstants.toIcon("drizzle");
+  final String sleet = AssetConstants.toIcon("sleet");
 }

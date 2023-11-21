@@ -8,7 +8,6 @@ class LocationRepositoryImpl extends LocationRepository {
 
   @override
   Future<Location> getLocation() async {
-    _askPermission();
     var position = await Geolocator.getCurrentPosition();
     return Location(latitude: position.latitude, longitude: position.longitude);
   }
@@ -19,7 +18,14 @@ class LocationRepositoryImpl extends LocationRepository {
     return "${address.city}, ${address.countryName}";
   }
 
-  Future<void> _askPermission() async {
-    await Geolocator.requestPermission();
+  Future<bool> askPermission() async {
+    final permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.always ||
+        permission == LocationPermission.whileInUse) {
+      return true;
+    }
+    final answer = await Geolocator.requestPermission();
+    return answer == LocationPermission.always ||
+        answer == LocationPermission.whileInUse;
   }
 }
